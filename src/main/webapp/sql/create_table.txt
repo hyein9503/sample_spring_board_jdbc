@@ -1,0 +1,28 @@
+======================================================================
+Table 생성
+======================================================================
+1. 게시판 테이블 생성
+   CREATE TABLE `board` (
+  		`seq` int(11) NOT NULL COMMENT '게시판 순번',
+  		`title` varchar(200) DEFAULT NULL COMMENT '게시판 제목',
+  		`contents` text,
+ 		`reg_id` varchar(20) DEFAULT NULL COMMENT '등록자 ID',
+  		`reg_name` varchar(20) DEFAULT NULL COMMENT '등록자 이름',
+  		`reg_date` datetime DEFAULT NULL COMMENT '등록일자',
+  		`mod_id` varchar(20) DEFAULT NULL COMMENT '수정자 ID',
+  		`mod_name` varchar(20) DEFAULT NULL COMMENT '수정자 이름',
+  		`mod_date` datetime DEFAULT NULL COMMENT '수정일자',
+ 		PRIMARY KEY (`seq`)
+	) COMMENT='게시판'
+	
+	CREATE TABLE `member` (
+  		`member_id` varchar(20) NOT NULL COMMENT '멤버 아이디',
+  		`member_pw` varchar(50) DEFAULT NULL COMMENT '멤버 비밀번호',
+  		`member_name` varchar(20) DEFAULT NULL COMMENT '멤버 이름',
+  		`email` varchar(50) DEFAULT NULL COMMENT '이메일',
+  		`reg_date` datetime DEFAULT NULL COMMENT '등록일자',
+  		`mod_date` datetime DEFAULT NULL COMMENT '수정일자',
+  		`level` INT(11) NULL DEFAULT '1' COMMENT '권한 등급',
+  		PRIMARY KEY (`member_id`)
+	) COMMENT='회원정보';
+	

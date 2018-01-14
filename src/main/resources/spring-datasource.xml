@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<context:property-placeholder location="classpath:properties/db.properties" />
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${db.driver}" />
+		<property name="jdbcUrl" value="${db.jdbcUrl}" />
+		<property name="user" value="${db.user}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+
+	<bean id="transactionManager" 
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" /> 
+	</bean>
+	
+	<!-- Member Start -->
+	<bean id="joinDao" class="com.simpolor.app.member.dao.JoinDAO">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	
+	<bean id="loginDao" class="com.simpolor.app.member.dao.LoginDAO">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	
+	<bean id="memberDao" class="com.simpolor.app.member.dao.MemberDAO">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	
+	<bean id="searchDao" class="com.simpolor.app.member.dao.SearchDAO">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	
+	<bean id="withdrawDao" class="com.simpolor.app.member.dao.WithdrawDAO">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	<!-- Member End -->
+	
+	
+	<!-- Board Start -->
+	<bean id="boardDao" class="com.simpolor.app.board.dao.BoardDAO">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	<!-- Board End -->
+	
+</beans>

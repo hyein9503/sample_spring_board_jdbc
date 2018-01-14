@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<!-- Member Start -->
+	<bean id="joinService" class="com.simpolor.app.member.service.JoinService">
+		<constructor-arg ref="joinDao" />
+	</bean>
+	
+	<bean id="loginService" class="com.simpolor.app.member.service.LoginService">
+		<constructor-arg ref="loginDao" />
+	</bean>
+	
+	<bean id="memberService" class="com.simpolor.app.member.service.MemberService">
+		<constructor-arg ref="memberDao" />
+	</bean>
+	
+	<bean id="searchService" class="com.simpolor.app.member.service.SearchService">
+		<constructor-arg ref="searchDao" />
+	</bean>
+	
+	<bean id="withdrawService" class="com.simpolor.app.member.service.WithdrawService">
+		<constructor-arg ref="withdrawDao" />
+	</bean>
+	<!-- Member End -->
+	
+	
+	<!-- Board Start -->
+	<bean id="boardService" class="com.simpolor.app.board.service.BoardService">
+		<constructor-arg ref="boardDao" />
+	</bean>
+	<!-- Board End -->
+	
+	
+</beans>

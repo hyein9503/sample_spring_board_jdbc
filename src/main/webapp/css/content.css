@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+.content{
+	width: 100%;
+	margin-top: 50px;
+}
+
+.board-list{ width: 100%; }
+.board-list table{ width: 100%; border-spacing: 0; }
+.board-list th{ line-height: 30px; border-top: 2px solid #000; border-bottom: 4px double #000; }
+.board-list td{ line-height: 25px; border-bottom: 1px solid #000; }
+.board-view{ width: 100%; }
+.board-view table{ width: 100%; border-top: 2px solid #000; border-spacing: 0;  }
+.board-view th, .board-view td{ line-height: 25px; border-bottom: 1px solid #000; }
+
+.buttons{
+	width: 100%;
+	margin-top: 30px;
+	text-align: right;
+}
+	
+
+
+

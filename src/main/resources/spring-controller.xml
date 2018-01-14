@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Home Start -->
+	<bean class="com.simpolor.app.home.controller.HomeController" />
+	<!-- Home End -->
+	
+	<!-- Member Start -->
+	<bean class="com.simpolor.app.member.controller.JoinController">
+		<property name="joinService" ref="joinService" />
+	</bean>
+	
+	<bean class="com.simpolor.app.member.controller.LoginController"> 
+		<property name="loginService" ref="loginService" />
+	</bean>
+	
+	<bean class="com.simpolor.app.member.controller.MemberController">
+		<property name="memberService" ref="memberService" />
+	</bean>
+	
+	<bean class="com.simpolor.app.member.controller.SearchController">
+		<property name="searchService" ref="searchService" />
+	</bean>
+	
+	<bean class="com.simpolor.app.member.controller.WithdrawController">
+		<property name="withdrawService" ref="withdrawService" />
+	</bean>
+	<!-- Member Start -->
+	
+	
+	<!-- Board Start -->
+	<bean class="com.simpolor.app.board.controller.BoardController">
+		<property name="boardService" ref="boardService" />
+	</bean>
+	<!-- Board End -->
+
+</beans>

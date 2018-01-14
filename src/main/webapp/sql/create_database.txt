@@ -1,0 +1,23 @@
+======================================================================
+Database 생성
+======================================================================
+1. 데이터베이스 생성
+   create database sample_spring_board_jdbc;
+   
+2. mysql 테이블에 접근
+   use mysql;
+   
+3. 사용자 생성
+   insert into user ( host, user, password, ssl_cipher, x509_issuer, x509_subject, authentication_string )
+   values ( 'localhost', 'sample_spring_board_jdbc', PASSWORD('sample_spring_board_jdbc'), '', '', '', '' );
+   insert into user ( host, user, password, ssl_cipher, x509_issuer, x509_subject, authentication_string )
+   values ( '127.0.0.1', 'sample_spring_board_jdbc', PASSWORD('sample_spring_board_jdbc'), '', '', '', '' );
+   
+4. 접근권한 부여
+   insert into db
+   values ( 'localhost', 'sample_spring_board_jdbc', 'sample_spring_board_jdbc', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y');
+   insert into db
+   values ( '127.0.0.1', 'sample_spring_board_jdbc', 'sample_spring_board_jdbc', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y');
+   
+5. 갱신
+   flush privileges;
